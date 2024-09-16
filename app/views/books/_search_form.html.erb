@@ -1,11 +1,7 @@
 <%= search_form_for @q do |f| %>
-  <%= f.label :title_cont %>
-  <%= f.search_field :title_cont %>
-
-  <%= f.label :genre_cont %>
-  <%= f.search_field :genre_cont %>
-
-
-
-  <%= f.submit "oi" %>
+   <%= f.search_field :title_cont, placeholder:"Pesquisar Livro" %>
+   <%= f.search_field :genre_cont, placeholder:"Pesquisar Genero" %>
+   <%= f.search_field :author_name_cont, placeholder: "Pesquisar Autor" %>  
+  
+  <%= f.submit "pesquisar" %>
 <% end %>   

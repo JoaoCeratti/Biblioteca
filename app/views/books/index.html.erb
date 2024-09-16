@@ -1,19 +1,37 @@
 <h1>Books</h1>
 <%= render 'books/search_form' %>
 
+<style>
+  table {
+    width: 100%; 
+    margin: 0 auto;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 41px; 
+    text-align: center; 
+  }
+
+  tr:hover {
+    background-color: #f1f1f1; 
+  }
+
+</style>
+
 <table border="5" cellpadding="10">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Genre</th>
-      <th>Author</th>
+      <th><%= sort_link(@q, :title, default_order: :asc)%></th>
+      <th><%= sort_link(@q, :genre, default_order: :asc)%></th>
+      <th><%= sort_link(@q, :author_name, default_order: :asc)%></th>
     </tr>
   </thead>
   <tbody>
-    <% @books.each do |book| %>
+    <% @books_ransack.each do |book| %>
       <tr>
         <td><%= book.title %></td>
-        <td><%= book.genre %></td>
+        <td><%= book.genre.split(',').first %></td>
         <td><%= book.author.name %></td>
       </tr>
     <% end %>

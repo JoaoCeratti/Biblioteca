@@ -3,9 +3,14 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @q = Book.ransack(params[:q])
+    @q = Book.joins(:author).ransack(params[:q])
     @books_ransack = @q.result(distinct: true)
-    @books = Book.includes(:author)
+    
+    if params.dig(:q, :s).present?
+      sort_column = params[:q][:s].split(' ').first
+      sort_direction = params[:q][:s].split(' ').last
+      @books_ransack = @books_ransack.select('books.*, authors.name AS author_name').order("#{sort_column} #{sort_direction}")
+    end
   end
 
   # GET /books/1 or /books/1.json
