@@ -1,0 +1,14 @@
+
+<h2>Title: <%= @book.title %></h2>
+
+<p>
+  Genre: <%= @book.genre.split(',').first %>
+</p>
+
+<p>
+  Author: < %= @book.author.name %>
+</p>
+
+<%= link_to 'Edit this book', edit_book_path(@book) %> |
+<%= link_to 'Back to books', books_path %> |
+<%= link_to 'Destroy this book', @book, method: :delete, data: { confirm: 'Are you sure?' } %>  
