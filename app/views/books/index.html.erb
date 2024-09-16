@@ -1,23 +1,5 @@
 <h1>Books</h1>
-<%= render 'books_ransack/search_form.html.erb'%>
-
-<style>
-  table {
-    width: 100%; 
-    margin: 0 auto; 
-  }
-
-  th, td {
-    border: 1px solid #ddd;
-    padding: 41px; 
-    text-align: left; 
-  }
-
-  tr:hover {
-    background-color: #f1f1f1; 
-  }
-  
-</style>
+<%= render 'books/search_form' %>
 
 <table border="5" cellpadding="10">
   <thead>
@@ -31,7 +13,7 @@
     <% @books.each do |book| %>
       <tr>
         <td><%= book.title %></td>
-        <td><%= book.genre.split(',').first %></td>
+        <td><%= book.genre %></td>
         <td><%= book.author.name %></td>
       </tr>
     <% end %>

@@ -5,7 +5,7 @@
     #)
   #end
 
-  genres = ['action, fantasy, horror, animation, comedy, romance']
+  genres = ['action', 'fantasy', 'horror', 'animation', 'comedy', 'romance']
   authors = Author.all
 
   authors.each do |author|
